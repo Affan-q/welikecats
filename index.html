@@ -198,6 +198,15 @@
       text-align: center;
       padding: 15px 0;
     }
+
+    /* Holographic / Rainbow Text Effect */
+    .holo-text {
+      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: bold;
+      text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7);
+    }
   </style>
 </head>
 <body>
@@ -208,10 +217,10 @@
 
 <nav>
   <a href="#hero">Home</a>
-  <a href="#about">About Cats</a>
+  <a href="#about">Cats</a>
   <a href="#gallery">Gallery</a>
   <a href="#quiz">Cat Quiz</a>
-  <a href="#links">Other Project Sites</a>
+  <a href="#links">Other Project Links</a>
 </nav>
 
 <!-- Hero Section (Army Cat Image) -->
@@ -223,11 +232,14 @@
 <section id="about">
   <div class="blog-post">
     <h2>Why Cats?</h2>
-    <p>Cats are the epitome of grace, independence, and comedic chaos. One second, they’re plotting murder and ignoring you with disdain; the next, they’re purring up a storm and demanding their full food bowl be more full. We’re Affan & Keanu, cat lover extraordinaires who've harnessed the power of Azure App Services to bring you this cat-tastic site—because what’s better than celebrating cats in the cloud? (The answer is horses, gel pens, or nothing!)
-      <p>
-        
-        <p>So, whether you're a midnight zoomie champion, a regal fluffball, or a smelly cat, we’re here to applaud every meow, hiss, and head tilt here on this site deployed using Azure App Services. Feel free to RDP,VPN, or log into and embrace the glorious silliness that is catdom—now streaming proudly from Azure!
-        </p>
+    <p>
+      Cats are the epitome of grace, independence, and comedic chaos. One second, they’re plotting murder and ignoring you with disdain; the next, they’re purring up a storm and demanding their full food bowl be more full. We’re Affan &amp; Keanu, cat lover extraordinaires who've harnessed the power of Azure App Services to bring you this cat-tastic site—because what’s better than celebrating cats in the cloud? 
+      <span class="holo-text">(The answer is horses, gel pens, or nothing!)</span>
+    </p>
+    <p>
+      So, whether you're a midnight zoomie champion, a regal fluffball, or a smelly cat, we’re here to applaud every meow, hiss, and head tilt on this site deployed using Azure App Services. Feel free to RDP, VPN, or log in and embrace the glorious silliness that is catdom— 
+      <span class="holo-text">now streaming proudly from Azure!</span>
+    </p>
   </div>
 </section>
 
@@ -240,8 +252,8 @@
     <img src="sunglassescatwhite.jpg" alt="Sunglasses Cat White" onclick="openLightbox(this)">
     <img src="teacat.gif" alt="Tea Cat GIF" onclick="openLightbox(this)">
     <img src="computercat.gif" alt="Computer Cat GIF" onclick="openLightbox(this)">
-    <img src="hatcat.jpg" alt="hat cat" onclick="openLightbox(this)">
-    <img src="sunglassescat.jpg" alt="hat cat" onclick="openLightbox(this)">
+    <img src="hatcat.jpg" alt="Hat Cat" onclick="openLightbox(this)">
+    <img src="sunglassescat.jpg" alt="Sunglasses Cat" onclick="openLightbox(this)">
   </div>
 </section>
 
@@ -252,21 +264,21 @@
   <form class="quiz-form" id="cat-quiz">
     <div class="question">
       <label><strong>1. What’s your favorite time of day to nap?</strong></label><br>
-      <input type="radio" name="q1" value="morning">Morning naps are the best!<br>
+      <input type="radio" name="q1" value="morning" required>Morning naps are the best!<br>
       <input type="radio" name="q1" value="afternoon">Afternoon snoozes are essential.<br>
       <input type="radio" name="q1" value="evening">Evening catnaps, obviously.<br>
       <input type="radio" name="q1" value="allthetime">All day, every day. Naps are life.<br>
     </div>
     <div class="question">
       <label><strong>2. What’s your reaction to a brand-new cardboard box?</strong></label><br>
-      <input type="radio" name="q2" value="inspect">I must inspect it thoroughly. Immediately.<br>
+      <input type="radio" name="q2" value="inspect" required>I must inspect it thoroughly. Immediately.<br>
       <input type="radio" name="q2" value="ignore">Meh, too mainstream for me.<br>
       <input type="radio" name="q2" value="destroy">I’ll shred it to pieces in 2 seconds.<br>
       <input type="radio" name="q2" value="claim">I’ll claim it as my throne!<br>
     </div>
     <div class="question">
       <label><strong>3. Favorite cat treat flavor?</strong></label><br>
-      <input type="radio" name="q3" value="tuna">Tuna, obviously.<br>
+      <input type="radio" name="q3" value="tuna" required>Tuna, obviously.<br>
       <input type="radio" name="q3" value="chicken">Chicken is the meow of my heart.<br>
       <input type="radio" name="q3" value="salmon">Salmon—pure fishy bliss.<br>
       <input type="radio" name="q3" value="catnip">All about that catnip, baby!<br>
@@ -276,7 +288,7 @@
   <div id="result"></div>
 </section>
 
-<!-- Contact Section -->
+<!-- Other Project Links Section -->
 <section id="links" class="blog-post">
   <h2>Other Project Links</h2>
   <nav>
@@ -322,7 +334,6 @@
       return;
     }
 
-    // Multiple combos + fallback random approach
     let combo = q1.value + "-" + q2.value + "-" + q3.value;
     let resultText = "";
 
@@ -341,15 +352,13 @@
         resultText = "You’re the Mysterious Night Cat—lurking in shadows, meowing at the moon!";
         break;
       default:
-        // Fallback to a random approach
         const fallbackResults = [
           "You’re the Sophisticated Cat—elegant, refined, and occasionally aloof!",
           "You’re the Chaotic Tornado Cat—zoomies at 3AM are your specialty!",
           "You’re the Curious Investigator Cat—sniffing out every corner and crevice!",
           "You’re the Fluffy Cuddlebug Cat—always seeking warm laps and cozy blankets!"
         ];
-        const randomIndex = Math.floor(Math.random() * fallbackResults.length);
-        resultText = fallbackResults[randomIndex];
+        resultText = fallbackResults[Math.floor(Math.random() * fallbackResults.length)];
         break;
     }
 
