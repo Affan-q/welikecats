@@ -217,7 +217,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(255,255,255,0.4);
+  background-color: rgba(255,255,255,0.6);
   border-radius: 5px;
   z-index: -1;
 }
@@ -347,7 +347,7 @@
     const q3 = document.querySelector('input[name="q3"]:checked');
 
     if (!q1 || !q2 || !q3) {
-      resultDiv.innerHTML = "Please answer all questions, you curious cat!";
+      resultDiv.innerHTML = "ERROR 404:Please answer all questions, you curious cat!";
       return;
     }
 
