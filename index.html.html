@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We Like Cats</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #555;
+      padding: 10px 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+    nav a:hover {
+      color: #ffcc00;
+    }
+    /* Hero Section */
+    .hero {
+      background: url('https://task2staticwebsite.blob.core.windows.net/$web/write%20me%20pen%20pals%20GIF%20by%20Priooor.gif') no-repeat center center/cover;
+      background-size: cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero h1 {
+      position: relative;
+      font-size: 48px;
+      color: #fff;
+      margin: 0;
+    }
+    /* Sections */
+    section {
+      padding: 40px;
+    }
+    .blog-post {
+      background: #fff;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .blog-post h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .blog-post p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    /* Cat Gallery */
+    .image-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .image-section img {
+      width: calc(33% - 10px);
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .image-section img:hover {
+      transform: scale(1.05);
+    }
+    /* Footer */
+    .footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+    }
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+    }
+    .lightbox-modal img {
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      margin: 50px auto;
+    }
+    .lightbox-modal span {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    /* Call-to-Action Button */
+    .cta-button {
+      display: inline-block;
+      background: #ff6600;
+      color: #fff;
+      padding: 15px 25px;
+      text-decoration: none;
+      font-size: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+    .cta-button:hover {
+      background: #e65c00;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>We Like Cats</h1>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="#about">About Cats</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#quiz">Cat Quiz</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Welcome to the Cat Kingdom!</h1>
+</section>
+
+<!-- About Section -->
+<section id="about" class="blog-post">
+  <h2>About Cats</h2>
+  <p>Cats are mysterious, adorable, and independent creatures. They bring joy, curiosity, and a touch of mischief into our lives. Whether you're a cat person or just appreciate a good cuddle, cats have a unique way of making our days brighter.</p>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="blog-post">
+  <h2>Cat Gallery</h2>
+  <p>Enjoy some cute and funny cat pictures!</p>
+  <div class="image-section">
+    <img src="https://via.placeholder.com/300x200/ffcc00/000000?text=Cat+1" alt="Cat 1" onclick="openLightbox(this)">
+    <img src="https://via.placeholder.com/300x200/ff9966/000000?text=Cat+2" alt="Cat 2" onclick="openLightbox(this)">
