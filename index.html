@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>We Like Cats</title>
   <style>
-    /* Global Styles */
     body {
       font-family: 'Arial', sans-serif;
       margin: 0;
@@ -36,8 +35,7 @@
     }
     /* Hero Section */
     .hero {
-      background: url('https://task2staticwebsite.blob.core.windows.net/$web/write%20me%20pen%20pals%20GIF%20by%20Priooor.gif') no-repeat center center/cover;
-      background-size: cover;
+      background: url('computercat.gif') no-repeat center center/cover;
       height: 400px;
       display: flex;
       align-items: center;
@@ -59,6 +57,7 @@
       font-size: 48px;
       color: #fff;
       margin: 0;
+      z-index: 1;
     }
     /* Sections */
     section {
@@ -130,21 +129,6 @@
       font-weight: bold;
       cursor: pointer;
     }
-    /* Call-to-Action Button */
-    .cta-button {
-      display: inline-block;
-      background: #ff6600;
-      color: #fff;
-      padding: 15px 25px;
-      text-decoration: none;
-      font-size: 20px;
-      border-radius: 5px;
-      margin-top: 20px;
-      transition: background 0.3s ease;
-    }
-    .cta-button:hover {
-      background: #e65c00;
-    }
   </style>
 </head>
 <body>
@@ -154,28 +138,63 @@
 </header>
 
 <nav>
-  <a href="index.html">Home</a>
+  <a href="#home">Home</a>
   <a href="#about">About Cats</a>
   <a href="#gallery">Gallery</a>
-  <a href="#quiz">Cat Quiz</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <!-- Hero Section -->
-<section class="hero">
+<section id="home" class="hero">
   <h1>Welcome to the Cat Kingdom!</h1>
 </section>
 
 <!-- About Section -->
 <section id="about" class="blog-post">
   <h2>About Cats</h2>
-  <p>Cats are mysterious, adorable, and independent creatures. They bring joy, curiosity, and a touch of mischief into our lives. Whether you're a cat person or just appreciate a good cuddle, cats have a unique way of making our days brighter.</p>
+  <p>Cats are amazing creatures—independent, curious, and downright adorable. They can be your best friend or your fiercest critic, depending on their mood!</p>
 </section>
 
 <!-- Gallery Section -->
 <section id="gallery" class="blog-post">
   <h2>Cat Gallery</h2>
-  <p>Enjoy some cute and funny cat pictures!</p>
+  <p>Check out these cat images!</p>
   <div class="image-section">
-    <img src="https://via.placeholder.com/300x200/ffcc00/000000?text=Cat+1" alt="Cat 1" onclick="openLightbox(this)">
-    <img src="https://via.placeholder.com/300x200/ff9966/000000?text=Cat+2" alt="Cat 2" onclick="openLightbox(this)">
+    <img src="frolickitten.jpg" alt="Frolicking Kitten" onclick="openLightbox(this)">
+    <img src="tictac.gif" alt="Tic Tac Cat GIF" onclick="openLightbox(this)">
+    <img src="sunglasscat.jpg" alt="Sunglass Cat" onclick="openLightbox(this)">
+    <img src="sunglassescatwhite.jpg" alt="Sunglasses Cat White" onclick="openLightbox(this)">
+    <img src="teacat.gif" alt="Tea Cat GIF" onclick="openLightbox(this)">
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="blog-post">
+  <h2>Contact Us</h2>
+  <p>Have cat stories or pictures to share? We’d love to hear from you! Feel free to reach out and join our cat-loving community.</p>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2025 We Like Cats | All Rights Reserved</p>
+</footer>
+
+<!-- Lightbox Modal -->
+<div id="lightboxModal" class="lightbox-modal">
+  <span onclick="closeLightbox()">&times;</span>
+  <img id="lightboxImage" src="" alt="Cat Image">
+</div>
+
+<script>
+  // Open the lightbox when an image is clicked
+  function openLightbox(img) {
+    document.getElementById("lightboxModal").style.display = "block";
+    document.getElementById("lightboxImage").src = img.src;
+  }
+  // Close the lightbox when the close button is clicked
+  function closeLightbox() {
+    document.getElementById("lightboxModal").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
