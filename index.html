@@ -9,8 +9,8 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Comic Sans MS', cursive, sans-serif; /* Because we need comedic flair! */
-      background-color: #ffd9f8; /* Soft pastel pink background for a playful vibe */
+      font-family: 'Comic Sans MS', cursive, sans-serif; /* Comedic flair! */
+      background-color: #ffd9f8; /* Soft pastel pink background */
       color: #333;
     }
     header {
@@ -40,9 +40,9 @@
       color: #660066;
     }
 
-    /* Hero Section with Sunglass Cat  */
+    /* Hero Section with Sunglass Cat GIF */
     .hero {
-      background: url('sunglasscat.') no-repeat center center/cover;
+      background: url('sunglasscat.gif') no-repeat center center/cover;
       height: 450px;
       position: relative;
       display: flex;
@@ -94,7 +94,7 @@
 
     /* About Section with Frolickitten Background */
     #about {
-      background: url('frolickitten.jpg') no-repeat center center/cover;
+      background: url('frolickitten.jpeg') no-repeat center center/cover;
       background-size: cover;
       color: #fff;
       position: relative;
@@ -219,7 +219,7 @@
   <h2>Welcome to the Cat Kingdom!</h2>
 </section>
 
-<!-- About Section (Frolickitten.jpg as background) -->
+<!-- About Section (Frolickitten.jpeg as background) -->
 <section id="about">
   <div class="blog-post">
     <h2>About Cats</h2>
@@ -311,16 +311,35 @@
       return;
     }
 
+    // Multiple combos + fallback random approach
+    let combo = q1.value + "-" + q2.value + "-" + q3.value;
     let resultText = "";
-    // Just a fun, random approach
-    if (q1.value === "allthetime" && q2.value === "claim" && q3.value === "catnip") {
-      resultText = "You’re the Lazy Overlord Cat—sleepy, bossy, and living your best cat life!";
-    } else if (q1.value === "morning" && q2.value === "inspect" && q3.value === "tuna") {
-      resultText = "You’re the Early Bird Cat—always alert, always on the hunt for breakfast!";
-    } else if (q1.value === "afternoon" && q2.value === "destroy" && q3.value === "chicken") {
-      resultText = "You’re the Mischievous Cat—causing chaos but still oh-so-adorable!";
-    } else {
-      resultText = "You’re the Sophisticated Cat—elegant, refined, and occasionally aloof!";
+
+    // Predefined combos
+    switch(combo) {
+      case "allthetime-claim-catnip":
+        resultText = "You’re the Lazy Overlord Cat—sleepy, bossy, and living your best cat life!";
+        break;
+      case "morning-inspect-tuna":
+        resultText = "You’re the Early Bird Cat—always alert, always on the hunt for breakfast!";
+        break;
+      case "afternoon-destroy-chicken":
+        resultText = "You’re the Mischievous Cat—causing chaos but still oh-so-adorable!";
+        break;
+      case "evening-ignore-salmon":
+        resultText = "You’re the Mysterious Night Cat—lurking in shadows, meowing at the moon!";
+        break;
+      default:
+        // Fallback to a random approach
+        const fallbackResults = [
+          "You’re the Sophisticated Cat—elegant, refined, and occasionally aloof!",
+          "You’re the Chaotic Tornado Cat—zoomies at 3AM are your specialty!",
+          "You’re the Curious Investigator Cat—sniffing out every corner and crevice!",
+          "You’re the Fluffy Cuddlebug Cat—always seeking warm laps and cozy blankets!"
+        ];
+        const randomIndex = Math.floor(Math.random() * fallbackResults.length);
+        resultText = fallbackResults[randomIndex];
+        break;
     }
 
     resultDiv.innerHTML = "<strong>Your Feline Identity:</strong> " + resultText;
@@ -329,4 +348,3 @@
 
 </body>
 </html>
-
