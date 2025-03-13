@@ -3,106 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>We Like Cats</title>
+  <title>We Like Cats - The Feline Fun Zone</title>
   <style>
+    /* Global Styles */
     body {
-      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f2f2f2;
+      font-family: 'Comic Sans MS', cursive, sans-serif; /* Because we need comedic flair! */
+      background-color: #ffd9f8; /* Soft pastel pink background for a playful vibe */
       color: #333;
     }
     header {
-      background-color: #333;
+      background-color: #ff8fdc;
       color: #fff;
-      padding: 20px;
       text-align: center;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
     }
     nav {
       display: flex;
       justify-content: center;
-      background-color: #555;
+      background-color: #ff6ccc;
       padding: 10px 0;
     }
     nav a {
       color: #fff;
       text-decoration: none;
       margin: 0 15px;
-      font-size: 18px;
+      font-size: 1.2em;
+      font-weight: bold;
     }
     nav a:hover {
-      color: #ffcc00;
+      color: #660066;
     }
-    /* Hero Section */
+
+    /* Hero Section with Sunglass Cat GIF */
     .hero {
-      background: url('computercat.gif') no-repeat center center/cover;
-      height: 400px;
+      background: url('sunglasscat.gif') no-repeat center center/cover;
+      height: 450px;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      position: relative;
     }
     .hero::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; 
+      left: 0; 
+      right: 0; 
       bottom: 0;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
     }
-    .hero h1 {
+    .hero h2 {
       position: relative;
-      font-size: 48px;
       color: #fff;
-      margin: 0;
+      font-size: 2.5em;
       z-index: 1;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      margin: 0 20px;
     }
-    /* Sections */
+
+    /* Section Layout */
     section {
-      padding: 40px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .blog-post {
-      background: #fff;
-      margin: 20px auto;
-      padding: 20px;
-      max-width: 800px;
+      background-color: #fff;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      padding: 20px;
+      margin-bottom: 40px;
     }
     .blog-post h2 {
-      font-size: 32px;
+      font-size: 2em;
       margin-bottom: 15px;
-      color: #333;
+      color: #660066;
     }
     .blog-post p {
-      font-size: 18px;
+      font-size: 1.1em;
       line-height: 1.6;
+      margin-bottom: 15px;
     }
-    /* Cat Gallery */
+
+    /* About Section with Frolickitten Background */
+    #about {
+      background: url('frolickitten.jpg') no-repeat center center/cover;
+      background-size: cover;
+      color: #fff;
+      position: relative;
+      margin-bottom: 40px;
+    }
+    #about::before {
+      content: "";
+      position: absolute;
+      top: 0; 
+      left: 0; 
+      right: 0; 
+      bottom: 0;
+      background: rgba(0,0,0,0.4);
+      border-radius: 8px;
+    }
+    #about .blog-post {
+      position: relative;
+      background-color: rgba(255,255,255,0.8);
+      color: #333;
+    }
+
+    /* Gallery Section */
     .image-section {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 15px;
       justify-content: center;
     }
     .image-section img {
       width: calc(33% - 10px);
-      cursor: pointer;
       border-radius: 8px;
+      cursor: pointer;
       transition: transform 0.3s ease;
+      object-fit: cover;
     }
     .image-section img:hover {
       transform: scale(1.05);
     }
-    /* Footer */
-    .footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 15px 0;
+
+    /* Cat Quiz Section */
+    .quiz-form .question {
+      margin-bottom: 20px;
     }
+    .quiz-form label {
+      font-size: 1em;
+      margin-left: 5px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #ff6ccc;
+      color: #fff;
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 1.1em;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .cta-button:hover {
+      background: #cc0099;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
     /* Lightbox Modal */
     .lightbox-modal {
       display: none;
@@ -113,21 +173,30 @@
       width: 100%;
       height: 100%;
       background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
     }
     .lightbox-modal img {
-      display: block;
       max-width: 90%;
       max-height: 90%;
-      margin: 50px auto;
+      border-radius: 8px;
     }
     .lightbox-modal span {
       position: absolute;
       top: 20px;
-      right: 30px;
+      right: 40px;
       color: #fff;
-      font-size: 40px;
+      font-size: 2em;
       font-weight: bold;
       cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
     }
   </style>
 </head>
@@ -138,63 +207,126 @@
 </header>
 
 <nav>
-  <a href="#home">Home</a>
+  <a href="#hero">Home</a>
   <a href="#about">About Cats</a>
   <a href="#gallery">Gallery</a>
+  <a href="#quiz">Cat Quiz</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
-  <h1>Welcome to the Cat Kingdom!</h1>
+<!-- Hero Section (Sunglass Cat GIF) -->
+<section id="hero" class="hero">
+  <h2>Welcome to the Cat Kingdom!</h2>
 </section>
 
-<!-- About Section -->
-<section id="about" class="blog-post">
-  <h2>About Cats</h2>
-  <p>Cats are amazing creatures—independent, curious, and downright adorable. They can be your best friend or your fiercest critic, depending on their mood!</p>
+<!-- About Section (Frolickitten.jpg as background) -->
+<section id="about">
+  <div class="blog-post">
+    <h2>About Cats</h2>
+    <p>Cats are the epitome of grace, independence, and utter silliness. One minute, they’re ignoring you with regal disdain, and the next, they’re purring up a storm and begging for treats. We’re here to celebrate every whisker twitch and tail flick!</p>
+  </div>
 </section>
 
 <!-- Gallery Section -->
 <section id="gallery" class="blog-post">
   <h2>Cat Gallery</h2>
-  <p>Check out these cat images!</p>
+  <p>Behold, some of our favorite cat images—each one guaranteed to brighten your day!</p>
   <div class="image-section">
-    <img src="frolickitten.jpg" alt="Frolicking Kitten" onclick="openLightbox(this)">
     <img src="tictac.gif" alt="Tic Tac Cat GIF" onclick="openLightbox(this)">
-    <img src="sunglasscat.jpg" alt="Sunglass Cat" onclick="openLightbox(this)">
     <img src="sunglassescatwhite.jpg" alt="Sunglasses Cat White" onclick="openLightbox(this)">
     <img src="teacat.gif" alt="Tea Cat GIF" onclick="openLightbox(this)">
+    <img src="computercat.gif" alt="Computer Cat GIF" onclick="openLightbox(this)">
   </div>
+</section>
+
+<!-- Cat Quiz Section -->
+<section id="quiz" class="blog-post">
+  <h2>Which Purrfect Cat Are You?</h2>
+  <p>Answer these meow-tastic questions to discover your inner cat!</p>
+  <form class="quiz-form" id="cat-quiz">
+    <div class="question">
+      <label><strong>1. What’s your favorite time of day to nap?</strong></label><br>
+      <input type="radio" name="q1" value="morning">Morning naps are the best!<br>
+      <input type="radio" name="q1" value="afternoon">Afternoon snoozes are essential.<br>
+      <input type="radio" name="q1" value="evening">Evening catnaps, obviously.<br>
+      <input type="radio" name="q1" value="allthetime">All day, every day. Naps are life.<br>
+    </div>
+    <div class="question">
+      <label><strong>2. What’s your reaction to a brand-new cardboard box?</strong></label><br>
+      <input type="radio" name="q2" value="inspect">I must inspect it thoroughly. Immediately.<br>
+      <input type="radio" name="q2" value="ignore">Meh, too mainstream for me.<br>
+      <input type="radio" name="q2" value="destroy">I’ll shred it to pieces in 2 seconds.<br>
+      <input type="radio" name="q2" value="claim">I’ll claim it as my throne!<br>
+    </div>
+    <div class="question">
+      <label><strong>3. Favorite cat treat flavor?</strong></label><br>
+      <input type="radio" name="q3" value="tuna">Tuna, obviously.<br>
+      <input type="radio" name="q3" value="chicken">Chicken is the meow of my heart.<br>
+      <input type="radio" name="q3" value="salmon">Salmon—pure fishy bliss.<br>
+      <input type="radio" name="q3" value="catnip">All about that catnip, baby!<br>
+    </div>
+    <button type="submit" class="cta-button">Reveal My Inner Cat!</button>
+  </form>
+  <div id="result"></div>
 </section>
 
 <!-- Contact Section -->
 <section id="contact" class="blog-post">
   <h2>Contact Us</h2>
-  <p>Have cat stories or pictures to share? We’d love to hear from you! Feel free to reach out and join our cat-loving community.</p>
+  <p>Got cat pictures or hilarious cat tales to share? We’re all ears (and whiskers)! Meow your way into our inbox and let’s celebrate the feline life together.</p>
 </section>
 
-<footer class="footer">
+<footer>
   <p>&copy; 2025 We Like Cats | All Rights Reserved</p>
 </footer>
 
 <!-- Lightbox Modal -->
-<div id="lightboxModal" class="lightbox-modal">
-  <span onclick="closeLightbox()">&times;</span>
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox()">
+  <span>&times;</span>
   <img id="lightboxImage" src="" alt="Cat Image">
 </div>
 
 <script>
-  // Open the lightbox when an image is clicked
+  // Lightbox
   function openLightbox(img) {
-    document.getElementById("lightboxModal").style.display = "block";
-    document.getElementById("lightboxImage").src = img.src;
+    document.getElementById('lightboxModal').style.display = 'flex';
+    document.getElementById('lightboxImage').src = img.src;
   }
-  // Close the lightbox when the close button is clicked
   function closeLightbox() {
-    document.getElementById("lightboxModal").style.display = "none";
+    document.getElementById('lightboxModal').style.display = 'none';
   }
+
+  // Cat Quiz
+  const quizForm = document.getElementById('cat-quiz');
+  const resultDiv = document.getElementById('result');
+
+  quizForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const q1 = document.querySelector('input[name="q1"]:checked');
+    const q2 = document.querySelector('input[name="q2"]:checked');
+    const q3 = document.querySelector('input[name="q3"]:checked');
+
+    if (!q1 || !q2 || !q3) {
+      resultDiv.innerHTML = "Please answer all questions, you curious cat!";
+      return;
+    }
+
+    let resultText = "";
+    // Just a fun, random approach
+    if (q1.value === "allthetime" && q2.value === "claim" && q3.value === "catnip") {
+      resultText = "You’re the Lazy Overlord Cat—sleepy, bossy, and living your best cat life!";
+    } else if (q1.value === "morning" && q2.value === "inspect" && q3.value === "tuna") {
+      resultText = "You’re the Early Bird Cat—always alert, always on the hunt for breakfast!";
+    } else if (q1.value === "afternoon" && q2.value === "destroy" && q3.value === "chicken") {
+      resultText = "You’re the Mischievous Cat—causing chaos but still oh-so-adorable!";
+    } else {
+      resultText = "You’re the Sophisticated Cat—elegant, refined, and occasionally aloof!";
+    }
+
+    resultDiv.innerHTML = "<strong>Your Feline Identity:</strong> " + resultText;
+  });
 </script>
 
 </body>
 </html>
+
