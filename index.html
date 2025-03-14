@@ -107,7 +107,7 @@
       left: 0; 
       right: 0; 
       bottom: 0;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.6); /* Darker overlay for more contrast */
       border-radius: 8px;
     }
     #about .blog-post {
@@ -213,9 +213,14 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-color: rgba(255,255,255,0.6); /* More opaque for clarity */
+      background-color: rgba(255,255,255,0.6); /* Semi-transparent for clarity */
       border-radius: 5px;
       z-index: -1;
+    }
+
+    /* Additional class to make the text smaller */
+    .small-holo {
+      font-size: 0.9em; /* Adjust this size as needed */
     }
   </style>
 </head>
@@ -244,7 +249,8 @@
     <h2>Why Cats?</h2>
     <p>
       Cats are the epitome of grace, independence, and comedic chaos. One second, they’re plotting murder and ignoring you with disdain; the next, they’re purring up a storm and demanding their full food bowl be more full. We’re Affan &amp; Keanu, cat lover extraordinaires who've harnessed the power of Azure App Services to bring you this cat-tastic site—because what’s better than celebrating cats in the cloud? 
-      <span class="holo-text">(The answer is horses, gel pens, or nothing!)</span>
+      <!-- Use .holo-text and .small-holo for smaller text -->
+      <span class="holo-text small-holo">(The answer is horses, gel pens, or nothing!)</span>
     </p>
     <p>
       So, whether you're a midnight zoomie champion, a regal fluffball, or a smelly cat, we’re here to applaud every meow, hiss, and head tilt on this site deployed using Azure App Services. Feel free to RDP, VPN, or log in and embrace the glorious silliness that is catdom—
@@ -378,4 +384,3 @@
 
 </body>
 </html>
-
